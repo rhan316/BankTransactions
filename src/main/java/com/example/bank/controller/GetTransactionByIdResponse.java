@@ -10,7 +10,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class GetTransactionByIdResponse {
 
-    @XmlElement(name = "transaction", namespace = "http://example.com/bank", required = true)
+    @XmlElement(name = "transaction", namespace = "http://example.com/bank")
     private Transaction transaction;
 
     public Transaction getTransaction() {

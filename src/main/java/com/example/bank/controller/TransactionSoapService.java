@@ -5,16 +5,13 @@ import com.example.bank.model.TransactionType;
 import com.example.bank.service.TransactionService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
-import jakarta.jws.WebService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import java.util.List;
-import java.util.Optional;
 
 @Endpoint
 public class TransactionSoapService {
@@ -38,7 +35,7 @@ public class TransactionSoapService {
         return response;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getTransactionById")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getTransactionByIdRequest")
     @ResponsePayload
     public GetTransactionByIdResponse getTransactionById(@RequestPayload GetTransactionByIdRequest request) {
         Long id = request.getId();

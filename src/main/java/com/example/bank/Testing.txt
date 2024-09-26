@@ -1,0 +1,22 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tran="http://example.com/bank">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tran:addTransactionRequest>
+         <tran:transaction>
+            <amount>1651.53</amount>
+            <description>Test 2</description>
+            <type>INCOME</type>
+            <dateTime>2024-08-10T09:30:00</dateTime>
+         </tran:transaction>
+      </tran:addTransactionRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bank="http://example.com/bank">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <bank:getTransactionByIdRequest>
+         <bank:id>1</bank:id>
+      </bank:getTransactionByIdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

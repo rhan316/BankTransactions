@@ -13,6 +13,7 @@ public class GetTransactionByIdRequest {
     private Long id;
 
     public Long getId() {
+        System.out.println("Current id " + id);
         return id;
     }
 
