@@ -1,0 +1,35 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.com/bank"
+           xmlns:tns="http://example.com/bank"
+           elementFormDefault="qualified">
+
+    <!-- Element do dodawania transakcji -->
+    <xs:element name="addTransactionRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Odniesienie do typu złożonego Transaction -->
+                <xs:element name="transaction" type="tns:Transaction"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Definicja typu Transaction -->
+    <xs:complexType name="Transaction">
+        <xs:sequence>
+            <xs:element name="amount" type="xs:double"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="dateTime" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Element odpowiedzi na dodanie transakcji -->
+    <xs:element name="addTransactionResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="transaction" type="tns:Transaction"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
