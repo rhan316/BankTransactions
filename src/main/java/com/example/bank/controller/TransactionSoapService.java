@@ -3,8 +3,6 @@ package com.example.bank.controller;
 import com.example.bank.model.Transaction;
 import com.example.bank.model.TransactionType;
 import com.example.bank.service.TransactionService;
-import jakarta.jws.WebMethod;
-import jakarta.jws.WebParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -17,7 +15,7 @@ import java.util.List;
 public class TransactionSoapService {
 
     private final TransactionService transactionService;
-    private final String NAMESPACE_URI = "http://example.com/bank";
+    private final String NAMESPACE_URI = "https://bank/transactions";
 
     @Autowired
     public TransactionSoapService(TransactionService transactionService) {
@@ -67,9 +65,15 @@ public class TransactionSoapService {
         return response;
     }
 
-    @WebMethod
-    public List<Transaction> getTransactionByType(@WebParam(name = "type") String type) {
-        var transactionType = TransactionType.valueOf(type.toUpperCase());
-        return transactionService.getTransactionsByType(transactionType);
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getTransactionsByTypeRequest")
+    @ResponsePayload
+    public GetTransactionsByTypeResponse getTransactionsByType(@RequestPayload GetTransactionsByTypeRequest request) {
+        var transactionType = TransactionType.valueOf(request.getType().toUpperCase());
+        List<Transaction> transactionList = transactionService.getTransactionsByType(transactionType);
+
+        var response = new GetTransactionsByTypeResponse();
+        response.setTransactionList(transactionList);
+
+        return response;
     }
 }

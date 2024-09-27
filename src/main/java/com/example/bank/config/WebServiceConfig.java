@@ -29,7 +29,7 @@ public class WebServiceConfig {
         var wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("TransactionPort");
         wsdl11Definition.setLocationUri("/ws/trans");
-        wsdl11Definition.setTargetNamespace("http://example.com/bank");
+        wsdl11Definition.setTargetNamespace("https://bank/transactions");
         wsdl11Definition.setSchema(schema);
 
         return wsdl11Definition;

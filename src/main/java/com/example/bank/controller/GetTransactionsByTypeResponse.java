@@ -8,9 +8,10 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.util.List;
 
-@XmlRootElement(name = "getAllTransactionsResponse", namespace = "https://bank/transactions")
+@XmlRootElement(name = "getTransactionsByTypeResponse", namespace = "https://bank/transactions")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class GetAllTransactionsResponse {
+public class GetTransactionsByTypeResponse {
+
     @XmlElement(name = "transactionList", namespace = "https://bank/transactions")
     private List<Transaction> transactionList;
 

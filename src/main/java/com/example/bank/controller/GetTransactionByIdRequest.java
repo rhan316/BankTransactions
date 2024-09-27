@@ -5,15 +5,14 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "getTransactionByIdRequest", namespace = "http://example.com/bank")
+@XmlRootElement(name = "getTransactionByIdRequest", namespace = "https://bank/transactions")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class GetTransactionByIdRequest {
 
-    @XmlElement(name = "id", namespace = "http://example.com/bank", required = true)
+    @XmlElement(name = "id", namespace = "https://bank/transactions", required = true)
     private Long id;
 
     public Long getId() {
-        System.out.println("Current id " + id);
         return id;
     }
 

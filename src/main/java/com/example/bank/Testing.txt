@@ -1,4 +1,4 @@
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tran="http://example.com/bank">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tran="https://bank/transactions">
    <soapenv:Header/>
    <soapenv:Body>
       <tran:addTransactionRequest>
@@ -12,11 +12,21 @@
    </soapenv:Body>
 </soapenv:Envelope>
 
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bank="http://example.com/bank">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bank="https://bank/transactions">
    <soapenv:Header/>
    <soapenv:Body>
       <bank:getTransactionByIdRequest>
          <bank:id>1</bank:id>
       </bank:getTransactionByIdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bank="https://bank/transactions">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <bank:getTransactionsByTypeRequest>
+         <bank:type>INCOME</bank:type>
+      </bank:getTransactionsByTypeRequest>
    </soapenv:Body>
 </soapenv:Envelope>

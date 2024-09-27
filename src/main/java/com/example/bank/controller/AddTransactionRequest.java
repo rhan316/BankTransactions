@@ -6,11 +6,11 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "addTransactionRequest", namespace = "http://example.com/bank")
+@XmlRootElement(name = "addTransactionRequest", namespace = "https://bank/transactions")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class AddTransactionRequest {
 
-    @XmlElement(name = "transaction", namespace = "http://example.com/bank", required = true)
+    @XmlElement(name = "transaction", namespace = "https://bank/transactions", required = true)
     private Transaction transaction;
 
     public Transaction getTransaction() {
